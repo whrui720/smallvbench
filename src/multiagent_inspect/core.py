@@ -119,6 +119,7 @@ async def _run_logic(sub_agent: SubAgent, instructions: str):
 
     tools = (sub_agent.tools or []).copy()
     tools.append(_end_run())
+    steps = 0
     for steps in range(sub_agent.max_steps):
         sub_agent.messages = _trim_messages(sub_agent.messages, sub_agent.max_token)
         
